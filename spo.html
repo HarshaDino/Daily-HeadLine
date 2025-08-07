@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"/>
+    <title>Sports HL</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <span id="heading">Daily HeadLine</span>
+            <ul>
+                <li><a href="index.html">Business</a></li>
+                <li><a href="ent.html">Entertainment</a></li>
+                <li><a href="spo.html"><span>Sports</span></a></li>
+                <li><a href="env.html">Environment</a></li>
+                <li><a href="life.html">Lifestyle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <div id="container"></div>
+
+    <hr>
+    
+    <footer>&copy;2025 | Daily HeadLine | All Rights reserved.</footer>
+
+    <script>
+        const url = `https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=0dc07123bdc547c49beaf5837c248d51`
+    fetch(url).then((res) => {
+    return res.json()
+    }).then((data) => {
+    console.log(data)
+    const articles = data.articles
+    const container = document.getElementById('container')
+
+    articles.forEach((article) => {
+    const newsItem = document.createElement("div")
+    newsItem.className ="news"
+
+    newsItem.innerHTML = 
+    `<h3>${article.title}</h3>
+    <p>${article.description}</p>
+    <img src=${article.urlToImage} width="500" height="250">`
+    container.appendChild(newsItem)
+    })
+})
+    </script>
+</body>
+</html>
