@@ -16,4 +16,4 @@
 
 ### Live Demo
 
-[Click for News]()
+[Click for News](https://harshadino.github.io/Daily-HeadLine/)
